@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM openjdk:8
 
 EXPOSE 8080
 
