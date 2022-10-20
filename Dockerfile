@@ -1,4 +1,7 @@
 FROM nginx:alpine
-EXPOSE 8080
-ADD target/docker-jenkins-integration-sample.jar docker-jenkins-integration-sample.jar
-ENTRYPOINT ["nginx","-jar","/docker-jenkins-integration-sample.jar"]
+COPY . /usr/share/nginx/html/
+
+docker build -t mywebsite .
+docker run -d -p 8080:80 mywebsite
+
+CMD ["nginx"]
